@@ -16,7 +16,9 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu";
-import { ChevronDown, Slash } from "lucide-react";
+import { Bold, ChevronDown, Italic, Slash, Underline } from "lucide-react";
+import { Tooltip, TooltipProvider, TooltipTrigger,TooltipContent } from "@/components/ui/tooltip";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 export default function Others() {
   return (
     <div className="w-full mx-auto ">
@@ -165,8 +167,42 @@ export default function Others() {
     </Breadcrumb>
 </div>
 <div>
+  <div>
+    <h1>Tooltip Section</h1>
+  <TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger>Hover</TooltipTrigger>
+    <TooltipContent>
+      <p>Add to library</p>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>
+
+  </div>
+  <div>
+    <h1>Toogle group</h1>
+    <ToggleGroup type="single">
+  <ToggleGroupItem value="a">A</ToggleGroupItem>
+  <ToggleGroupItem value="b">B</ToggleGroupItem>
+  <ToggleGroupItem value="c">C</ToggleGroupItem>
+</ToggleGroup>
+
+<ToggleGroup size={"lg"} type="multiple">
+      <ToggleGroupItem value="bold" aria-label="Toggle bold">
+        <Bold className="h-4 w-4" />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="italic" aria-label="Toggle italic">
+        <Italic className="h-4 w-4" />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="underline" aria-label="Toggle underline">
+        <Underline className="h-4 w-4" />
+      </ToggleGroupItem>
+    </ToggleGroup>
+
+  </div>
     
 </div>
+
       </div>
   )
 }
